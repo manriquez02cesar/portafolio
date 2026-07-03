@@ -58,14 +58,115 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Tareas Disponibles
             </h2>
             
-            <!-- Grid dinámico de botones -->
+            <!-- Grid dinámico de botones escritos directamente en HTML -->
             <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Los botones se inyectan dinámicamente desde JavaScript para facilitar la administración de las rutas -->
+                
+                <!-- TAREA 1 (Tu archivo real al mismo nivel del index) -->
+                <button onclick="openTask('./RetoClasificacionVentas.html', 'Reto: Clasificación de Ventas')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <!-- Icono que cambia de tono al resaltar la tarjeta -->
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-chart-line text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Reto: Clasificación de Ventas</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Análisis y modelo predictivo de clasificación.</span>
+                        </div>
+                    </div>
+                    <!-- Flecha de interacción con efecto de deslizamiento a la derecha -->
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+
+                <!-- TAREA 2 -->
+                <button onclick="openTask('./tarea2_graficos.html', 'Tarea 2: Análisis Estadístico')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-chart-pie text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Tarea 2: Análisis Estadístico</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Procesamiento de datos y uso de librerías numéricas.</span>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+
+                <!-- TAREA 3 -->
+                <button onclick="openTask('./tarea3_limpieza.html', 'Tarea 3: Limpieza y Curación')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-filter text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Tarea 3: Limpieza y Curación</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Estrategias de curación y normalización de variables.</span>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+
+                <!-- TAREA 4 -->
+                <button onclick="openTask('./tarea4_predictivo.html', 'Tarea 4: Visualización Gráfica')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-cube text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Tarea 4: Visualización Gráfica</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Creación de reportes dinámicos interactivos.</span>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+
+                <!-- TAREA 5 -->
+                <button onclick="openTask('./tarea5_conclusiones.html', 'Tarea 5: Reporte Final Integrado')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-file-shield text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Tarea 5: Reporte Final Integrado</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Presentación integral con conclusiones automatizadas.</span>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+
+                <!-- [SI QUIERES AÑADIR OTRA TAREA MÁS ADELANTE, COPIA DESDE AQUÍ] -->
+                <!-- 
+                <button onclick="openTask('./nombre_de_archivo.html', 'Nombre de la Tarea')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid fa-file-code text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Título Formal Tarea</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Una breve descripción de la tarea aquí.</span>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </button>
+                -->
+                <!-- [HASTA AQUÍ PARA AÑADIR NUEVA TAREA] -->
+
             </div>
         </section>
     </main>
 
-    <!-- VISUALIZADOR DE TAREAS: Espacio envolvente para abrir el HTML interactivo del usuario -->
+    <!-- VISUALIZADOR DE TAREAS: Espacio envolvente para abrir el HTML interactivo -->
     <div id="viewer-container" class="hidden fixed inset-0 bg-[#09090b] flex flex-col z-50 transition-all duration-500 opacity-0 translate-y-4">
         <!-- Barra de acción superior integrada al visor -->
         <div class="px-6 py-4 bg-zinc-950/90 border-b border-zinc-800 flex items-center justify-between backdrop-blur-md">
@@ -92,91 +193,7 @@
 
     <script>
         // =========================================================================
-        // BASE DE DATOS DE TAREAS:
-        // Aquí puedes editar, agregar o cambiar las rutas correspondientes de tus HTMLs.
-        // No te preocupes por el diseño, el JavaScript se encarga de crear los botones automáticamente.
-        // =========================================================================
-        const TASKS_DATABASE = [
-            {
-                id: 1,
-                title: "Reto: Clasificación de Ventas",
-                subtitle: "Análisis y modelo predictivo de clasificación.",
-                path: "./RetoClasificacionVentas.html", // Al estar al mismo nivel, solo pones './NombreArchivo.html'
-                icon: "fa-chart-line"
-            },
-            {
-                id: 2,
-                title: "Tarea 2: Análisis Estadístico",
-                subtitle: "Procesamiento de datos y uso de librerías numéricas.",
-                path: "./tarea2_graficos.html", // Sin la carpeta '/tareas/'
-                icon: "fa-chart-pie"
-            },
-            {
-                id: 3,
-                title: "Tarea 3: Limpieza y Curación",
-                subtitle: "Estrategias de curación y normalización de variables.",
-                path: "./tarea3_limpieza.html", // Sin la carpeta '/tareas/'
-                icon: "fa-filter"
-            },
-            {
-                id: 4,
-                title: "Tarea 4: Visualización Gráfica",
-                subtitle: "Creación de reportes dinámicos interactivos.",
-                path: "./tarea4_predictivo.html", // Sin la carpeta '/tareas/'
-                icon: "fa-cube"
-            },
-            {
-                id: 5,
-                title: "Tarea 5: Reporte Final Integrado",
-                subtitle: "Presentación integral con conclusiones automatizadas.",
-                path: "./tarea5_conclusiones.html", // Sin la carpeta '/tareas/'
-                icon: "fa-file-shield"
-            }
-        ];
-
-        // =========================================================================
-        // RENDERIZADO DINÁMICO DE LOS BOTONES
-        // =========================================================================
-        const tasksGrid = document.getElementById("tasks-grid");
-
-        function buildPortfolioButtons() {
-            tasksGrid.innerHTML = "";
-            
-            TASKS_DATABASE.forEach(task => {
-                // Crear contenedor/botón principal
-                const button = document.createElement("button");
-                // Clase de Tailwind CSS aplicando el resalte moderno (Glow y Border sutil) al pasar el cursor (Hover)
-                button.className = `
-                    group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl
-                    flex items-center justify-between gap-4 transition-all duration-300 ease-out 
-                    hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 
-                    hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50
-                `;
-                button.onclick = () => openTask(task.id);
-
-                button.innerHTML = `
-                    <div class="flex items-center gap-4 truncate">
-                        <!-- Icono que cambia de tono al resaltar la tarjeta -->
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid ${task.icon || 'fa-file-code'} text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">${task.title}</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">${task.subtitle}</span>
-                        </div>
-                    </div>
-                    <!-- Flecha de interacción con efecto de deslizamiento a la derecha -->
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </div>
-                `;
-
-                tasksGrid.appendChild(button);
-            });
-        }
-
-        // =========================================================================
-        // ACCIONES DE NAVEGACIÓN Y CARGA DE VISTAS
+        // ACCIONES DE NAVEGACIÓN Y CARGA DE VISTAS (Solo manipulación visual)
         // =========================================================================
         const dashboard = document.getElementById("main-dashboard");
         const viewerContainer = document.getElementById("viewer-container");
@@ -184,14 +201,11 @@
         const activeTaskTitle = document.getElementById("active-task-title");
         const activeTaskLink = document.getElementById("active-task-link");
 
-        function openTask(taskId) {
-            const task = TASKS_DATABASE.find(t => t.id === taskId);
-            if (!task) return;
-
+        function openTask(path, title) {
             // Asignar parámetros del visualizador
-            activeTaskTitle.textContent = task.title;
-            activeTaskLink.href = task.path;
-            taskIframe.src = task.path;
+            activeTaskTitle.textContent = title;
+            activeTaskLink.href = path;
+            taskIframe.src = path;
 
             // Transición limpia de desvanecimiento
             dashboard.classList.add("opacity-0", "translate-y-2");
@@ -223,11 +237,6 @@
                 taskIframe.src = ""; // Detener iframe para ahorrar recursos
             }, 300);
         }
-
-        // Cargar botones al iniciar la aplicación
-        window.onload = function() {
-            buildPortfolioButtons();
-        };
     </script>
 </body>
 </html>
