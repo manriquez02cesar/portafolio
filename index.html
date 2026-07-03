@@ -1,1 +1,233 @@
-<p>hola mundo este es mi portafolio</p>
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>César Manríquez | Portafolio</title>
+    <!-- Tailwind CSS para diseño moderno responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos minimalistas de desarrollo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts: Montserrat para una tipografía ultra moderna y limpia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Aplicamos Montserrat globalmente para asegurar uniformidad profesional */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #09090b; /* Fondo negro ultra-oscuro premium */
+        }
+        
+        /* Ocultar barra de scroll por defecto para un look de aplicación web */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+    </style>
+</head>
+<body class="h-full text-zinc-100 flex flex-col justify-between overflow-x-hidden antialiased">
+
+    <!-- CONTENEDOR PRINCIPAL: Dashboard centralizado sin barras de navegación molestas -->
+    <main id="main-dashboard" class="flex-grow flex flex-col justify-center px-4 py-16 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full transition-all duration-500 opacity-100">
+        
+        <!-- ENCABEZADO: Nombre de César y descripción corta de 2 oraciones -->
+        <header class="mb-14 text-center sm:text-left">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+                César Manríquez
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-zinc-400 max-w-3xl leading-relaxed font-light">
+                Este portafolio académico reúne el conjunto de mis trabajos prácticos, análisis y libretas interactivas de Jupyter compilados de forma profesional. Selecciona cualquiera de las tareas presentadas a continuación para visualizar su funcionamiento e interfaz HTML de inmediato.
+            </p>
+        </header>
+
+        <!-- SECCIÓN DE BOTONES/TAREAS: Rejilla reactiva con efectos de resalte en hover -->
+        <section class="mb-8">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Tareas Disponibles
+            </h2>
+            
+            <!-- Grid dinámico de botones -->
+            <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Los botones se inyectan dinámicamente desde JavaScript para facilitar la administración de las rutas -->
+            </div>
+        </section>
+    </main>
+
+    <!-- VISUALIZADOR DE TAREAS: Espacio envolvente para abrir el HTML interactivo del usuario -->
+    <div id="viewer-container" class="hidden fixed inset-0 bg-[#09090b] flex flex-col z-50 transition-all duration-500 opacity-0 translate-y-4">
+        <!-- Barra de acción superior integrada al visor -->
+        <div class="px-6 py-4 bg-zinc-950/90 border-b border-zinc-800 flex items-center justify-between backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <button onclick="closeTaskViewer()" class="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 hover:text-zinc-100 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                </button>
+                <div class="h-5 w-[1px] bg-zinc-800"></div>
+                <h3 id="active-task-title" class="text-sm font-semibold tracking-wide text-zinc-200 truncate max-w-xs md:max-w-md">Nombre de la Tarea</h3>
+            </div>
+            <div>
+                <!-- Enlace de acceso externo directo si se desea revisar en pestaña limpia -->
+                <a id="active-task-link" href="#" target="_blank" class="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/30 border border-indigo-900/50 rounded-lg hover:bg-indigo-900/20 hover:border-indigo-500 transition-all duration-300">
+                    <i class="fa-solid fa-expand"></i> Pantalla Completa
+                </a>
+            </div>
+        </div>
+        
+        <!-- Área de despliegue del HTML -->
+        <div class="flex-grow bg-white relative">
+            <iframe id="task-iframe" src="" class="w-full h-full border-0 absolute inset-0" title="Visualizador de Tareas de César"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================================
+        // BASE DE DATOS DE TAREAS:
+        // Aquí puedes editar, agregar o cambiar las rutas correspondientes de tus HTMLs.
+        // No te preocupes por el diseño, el JavaScript se encarga de crear los botones automáticamente.
+        // =========================================================================
+        const TASKS_DATABASE = [
+            {
+                id: 1,
+                title: "Tarea 1: Introducción a Jupyter",
+                subtitle: "Conceptos iniciales y maquetación de entorno.",
+                path: "./tareas/tarea1_pandas.html", // Reemplaza por tu ruta real
+                icon: "fa-terminal"
+            },
+            {
+                id: 2,
+                title: "Tarea 2: Análisis Estadístico",
+                subtitle: "Procesamiento de datos y uso de librerías numéricas.",
+                path: "./tareas/tarea2_graficos.html", // Reemplaza por tu ruta real
+                icon: "fa-chart-pie"
+            },
+            {
+                id: 3,
+                title: "Tarea 3: Limpieza y Curación",
+                subtitle: "Estrategias de curación y normalización de variables.",
+                path: "./tareas/tarea3_limpieza.html", // Reemplaza por tu ruta real
+                icon: "fa-filter"
+            },
+            {
+                id: 4,
+                title: "Tarea 4: Visualización Gráfica",
+                subtitle: "Creación de reportes dinámicos interactivos.",
+                path: "./tareas/tarea4_predictivo.html", // Reemplaza por tu ruta real
+                icon: "fa-cube"
+            },
+            {
+                id: 5,
+                title: "Tarea 5: Reporte Final Integrado",
+                subtitle: "Presentación integral con conclusiones automatizadas.",
+                path: "./tareas/tarea5_conclusiones.html", // Reemplaza por tu ruta real
+                icon: "fa-file-shield"
+            }
+        ];
+
+        // =========================================================================
+        // RENDERIZADO DINÁMICO DE LOS BOTONES
+        // =========================================================================
+        const tasksGrid = document.getElementById("tasks-grid");
+
+        function buildPortfolioButtons() {
+            tasksGrid.innerHTML = "";
+            
+            TASKS_DATABASE.forEach(task => {
+                // Crear contenedor/botón principal
+                const button = document.createElement("button");
+                // Clase de Tailwind CSS aplicando el resalte moderno (Glow y Border sutil) al pasar el cursor (Hover)
+                button.className = `
+                    group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl
+                    flex items-center justify-between gap-4 transition-all duration-300 ease-out 
+                    hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 
+                    hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50
+                `;
+                button.onclick = () => openTask(task.id);
+
+                button.innerHTML = `
+                    <div class="flex items-center gap-4 truncate">
+                        <!-- Icono que cambia de tono al resaltar la tarjeta -->
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                            <i class="fa-solid ${task.icon || 'fa-file-code'} text-lg"></i>
+                        </div>
+                        <div class="truncate">
+                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">${task.title}</span>
+                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">${task.subtitle}</span>
+                        </div>
+                    </div>
+                    <!-- Flecha de interacción con efecto de deslizamiento a la derecha -->
+                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                `;
+
+                tasksGrid.appendChild(button);
+            });
+        }
+
+        // =========================================================================
+        // ACCIONES DE NAVEGACIÓN Y CARGA DE VISTAS
+        // =========================================================================
+        const dashboard = document.getElementById("main-dashboard");
+        const viewerContainer = document.getElementById("viewer-container");
+        const taskIframe = document.getElementById("task-iframe");
+        const activeTaskTitle = document.getElementById("active-task-title");
+        const activeTaskLink = document.getElementById("active-task-link");
+
+        function openTask(taskId) {
+            const task = TASKS_DATABASE.find(t => t.id === taskId);
+            if (!task) return;
+
+            // Asignar parámetros del visualizador
+            activeTaskTitle.textContent = task.title;
+            activeTaskLink.href = task.path;
+            taskIframe.src = task.path;
+
+            // Transición limpia de desvanecimiento
+            dashboard.classList.add("opacity-0", "translate-y-2");
+            setTimeout(() => {
+                dashboard.classList.add("hidden");
+                viewerContainer.classList.remove("hidden");
+                
+                // Forzar reflujo de pantalla para animaciones
+                viewerContainer.offsetHeight; 
+                
+                viewerContainer.classList.remove("opacity-0", "translate-y-4");
+                viewerContainer.classList.add("opacity-100", "translate-y-0");
+            }, 300);
+        }
+
+        function closeTaskViewer() {
+            viewerContainer.classList.remove("opacity-100", "translate-y-0");
+            viewerContainer.classList.add("opacity-0", "translate-y-4");
+            
+            setTimeout(() => {
+                viewerContainer.classList.add("hidden");
+                dashboard.classList.remove("hidden");
+                
+                // Forzar reflujo de pantalla para animaciones
+                dashboard.offsetHeight; 
+                
+                dashboard.classList.remove("opacity-0", "translate-y-2");
+                dashboard.classList.add("opacity-100", "translate-y-0");
+                taskIframe.src = ""; // Detener iframe para ahorrar recursos
+            }, 300);
+        }
+
+        // Cargar botones al iniciar la aplicación
+        window.onload = function() {
+            buildPortfolioButtons();
+        };
+    </script>
+</body>
+</html>
