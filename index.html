@@ -41,136 +41,143 @@
 
     <!-- CONTENEDOR PRINCIPAL: Dashboard centralizado sin barras de navegación molestas -->
     <main id="main-dashboard" class="flex-grow flex flex-col justify-center px-4 py-16 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full transition-all duration-500 opacity-100">
+    
+    <header class="mb-14 text-center sm:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+            César Manríquez
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-zinc-400 max-w-3xl leading-relaxed font-light">
+            Este portafolio académico reúne el conjunto de mis trabajos prácticos, análisis y libretas interactivas de Jupyter compilados de forma profesional. Selecciona cualquiera de las tareas presentadas a continuación para visualizar su funcionamiento e interfaz HTML de inmediato.
+        </p>
+    </header>
+
+    <section class="mb-12"> <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Tareas Disponibles
+        </h2>
         
-        <!-- ENCABEZADO: Nombre de César y descripción corta de 2 oraciones -->
-        <header class="mb-14 text-center sm:text-left">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
-                César Manríquez
-            </h1>
-            <p class="mt-4 text-base sm:text-lg text-zinc-400 max-w-3xl leading-relaxed font-light">
-                Este portafolio académico reúne el conjunto de mis trabajos prácticos, análisis y libretas interactivas de Jupyter compilados de forma profesional. Selecciona cualquiera de las tareas presentadas a continuación para visualizar su funcionamiento e interfaz HTML de inmediato.
-            </p>
-        </header>
+        <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <!-- SECCIÓN DE BOTONES/TAREAS: Rejilla reactiva con efectos de resalte en hover -->
-        <section class="mb-8">
-            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Tareas Disponibles
-            </h2>
+            <!--TAREA 1-->
+            <button onclick="openTask('./RetoClasificacionVentas.html', 'Reto: Clasificación de Ventas')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-chart-line text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Reto: Clasificación de Ventas</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Clasificacion de ventas usando Python</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
+
+            <!--TAREA 2-->
+            <button onclick="openTask('./MiniPracticaCSV.html', 'Tarea 2: Practica Como crear y Guardar un CSV con Pandas y NumPy')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-chart-pie text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Mini práctica: conecta todo</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Manejo de datos con NumPy y Pandas</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
+
+            <!--TAREA 3-->
+            <button onclick="openTask('./NetflixMetadata.html', 'Tarea 3: Limpieza de datos de Netflix')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-filter text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Auditoría: Limpieza y auditoria de datos de Netflix</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Se realizo una limpieza de datos de netflix usando Pandas y poder filtrar cada registro de manera adecuada</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
+
+            <!--TAREA 4-->
+            <button onclick="openTask('./images/TitanicStreamlite.png', 'Tarea 4: Leer datos del Titanic con boto3 en aws')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-cube text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Boto3 AWS: Leer datos del Titanic con boto3 en aws</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Transformacion de datos del titanic por medio de aws.</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
             
-            <!-- Grid dinámico de botones escritos directamente en HTML -->
-            <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                <!-- TAREA 1 (Tu archivo real al mismo nivel del index) -->
-                <button onclick="openTask('./RetoClasificacionVentas.html', 'Reto: Clasificación de Ventas')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <!-- Icono que cambia de tono al resaltar la tarjeta -->
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-chart-line text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Reto: Clasificación de Ventas</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Clasificacion de ventas usando Python</span>
-                        </div>
+            <!--TAREA 5-->
+            <button onclick="openTask('./funcionesLambdaS3.html', 'Funcion Lambda: Leer el csv de titanic desde s3')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-file-shield text-lg"></i>
                     </div>
-                    <!-- Flecha de interacción con efecto de deslizamiento a la derecha -->
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Funcion Lambda: Leer el csv de titanic desde s3</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Limpiar el csv con las funciones vistas en clase</span>
                     </div>
-                </button>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
 
-                <!-- TAREA 2 -->
-                <button onclick="openTask('./MiniPracticaCSV.html', 'Tarea 2: Practica Como crear y Guardar un CSV con Pandas y NumPy')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-chart-pie text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Mini práctica: conecta todo</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Manejo de datos con NumPy y Pandas</span>
-                        </div>
+            <!--PROXIMA TAREA
+            <button onclick="openTask('./funcionesLambdaS3.html', 'Funcion Lambda: Leer el csv de titanic desde s3')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-file-shield text-lg"></i>
                     </div>
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Funcion Lambda: Leer el csv de titanic desde s3</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Limpiar el csv con las funciones vistas en clase</span>
                     </div>
-                </button>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>-->
 
-                <!-- TAREA 3 -->
-                <button onclick="openTask('./NetflixMetadata.html', 'Tarea 3: Limpieza de datos de Netflix')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-filter text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Auditoría: Limpieza y auditoria de datos de Netflix</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Se realizo una limpieza de datos de netflix usando Pandas y poder filtrar cada registro de manera adecuada</span>
-                        </div>
+        </div> </section> <section class="mb-8">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Cursos realizados
+        </h2>
+        
+        <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!--CURSOS REALIZADOS
+            <button onclick="openTask('./RetoClasificacionVentas.html', 'Reto: Clasificación de Ventas')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-chart-line text-lg"></i>
                     </div>
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Reto: Clasificación de Ventas</span>
+                        <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Clasificacion de ventas usando Python</span>
                     </div>
-                </button>
-
-                <!-- TAREA 4 -->
-                <button onclick="openTask('./images/TitanicStreamlite.png', 'Tarea 4: Leer datos del Titanic con boto3 en aws')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-cube text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Boto3 AWS: Leer datos del Titanic con boto3 en aws</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Transformacion de datos del titanic por medio de aws.</span>
-                        </div>
-                    </div>
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </div>
-                </button>
-
-                <!-- TAREA 5 -->
-                <button onclick="openTask('./funcionesLambdaS3.html', 'Funcion Lambda: Leer el csv de titanic desde s3')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-file-shield text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Funcion Lambda: Leer el csv de titanic desde s3</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Limpiar el csv con las funciones vistas en clase</span>
-                        </div>
-                    </div>
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </div>
-                </button>
-
-                <!-- [SI QUIERES AÑADIR OTRA TAREA MÁS ADELANTE, COPIA DESDE AQUÍ] -->
-                <!-- 
-                <button onclick="openTask('./nombre_de_archivo.html', 'Nombre de la Tarea')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                    <div class="flex items-center gap-4 truncate">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                            <i class="fa-solid fa-file-code text-lg"></i>
-                        </div>
-                        <div class="truncate">
-                            <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Título Formal Tarea</span>
-                            <span class="block text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 mt-0.5 truncate">Una breve descripción de la tarea aquí.</span>
-                        </div>
-                    </div>
-                    <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </div>
-                </button>
-                -->
-                <!-- [HASTA AQUÍ PARA AÑADIR NUEVA TAREA] -->
-
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>-->
             </div>
-        </section>
-        <!-- SECCIÓN DE CURSOS REALIZADOS:-->
-        <section class="mb-8">
-            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Cursos realizados
-            </h2>
-        </section>
-    </main>
+    </section>
+    
+</main>
 
     <!-- VISUALIZADOR DE TAREAS: Espacio envolvente para abrir el HTML interactivo -->
     <div id="viewer-container" class="hidden fixed inset-0 bg-[#09090b] flex flex-col z-50 transition-all duration-500 opacity-0 translate-y-4">
