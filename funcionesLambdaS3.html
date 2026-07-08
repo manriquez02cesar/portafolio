@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Función Lambda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #141b2d;
+            --text-color: #e2e8f0;
+            --primary-blue: #00d2ff;
+            --accent-blue: #0066ff;
+            --border-color: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--primary-blue);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+
+        header p {
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .code-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .code-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .code-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-wrapper {
+            background-color: #070a12;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Visualizador de <span>Código Lambda</span></h1>
+            <p>Estructura y flujo de trabajo del proyecto</p>
+        </header>
+
+        <main>
+            <section class="code-section">
+                <h2 class="code-title">1. Codigo clean_data.py</h2>
+                <div class="image-wrapper">
+                    <img src="images/funcionLambda/CleanDataFuncionLambda.png" alt="Código de clean_data.py" loading="lazy">
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">2. Codigo new_data.py</h2>
+                <div class="image-wrapper">
+                    <img src="images/funcionLambda/NewDataFuncionLambda.png" alt="Código de new_data.py" loading="lazy">
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">3. Codigo lambda_function.py</h2>
+                <div class="image-wrapper">
+                    <img src="images/funcionLambda/LambdaFunction.png" alt="Código de lambda_function.py" loading="lazy">
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">4. Codigo Salida</h2>
+                <div class="image-wrapper">
+                    <img src="images/funcionLambda/SalidaFuncionLambda.png" alt="Resultado de Salida de la Función Lambda" loading="lazy">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Dashboard de Procesamiento de Datos</p>
+        </footer>
+    </div>
+
+</body>
+</html>
