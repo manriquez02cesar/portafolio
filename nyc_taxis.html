@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -105,85 +108,79 @@
             color: #64748b;
             font-size: 0.85rem;
         }
+
+        /* Clases de utilidad nativas para la transición suave */
+        .transition-all-custom {
+            transition: all 0.3s ease-out;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Visualizador de <span>Código Lambda para carga de datos s3 para NYC Taxis</span></h1>
+            <h1>Visualizador de <span>Código Lambda para carga de datos S3 a través de un Dataset</span></h1>
             <p>Estructura y flujo de trabajo del proyecto</p>
         </header>
 
-        <main>
+        <main id="main-dashboard" class="transition-all-custom duration-300">
             <section class="code-section">
-                <h2 class="code-title">1. Codigo lambda_function.py</h2>
-                <div class="image-wrapper">
+                <h2 class="code-title">1. Código lambda_function.py</h2>
+                <div class="p-2 bg-[#070a12] rounded-lg">
                     <button onclick="openTask('./components/Codigo_NYC_Taxis_Ultimos3.txt', 'Getting into the Serverless')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
-                <div class="flex items-center gap-4 truncate">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
-                        <i class="fa-solid fa-chart-line text-lg"></i>
-                    </div>
-                    <div class="truncate">
-                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Codigo NYC Taxis ultimos 3 años</span>
-                    </div>
-                </div>
-                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
-                    <i class="fa-solid fa-arrow-right text-sm"></i>
-                </div>
-            </button>
+                        <div class="flex items-center gap-4 truncate">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                                <i class="fa-solid fa-chart-line text-lg"></i>
+                            </div>
+                            <div class="truncate">
+                                <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Código NYC Taxis últimos 3 años</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </div>
+                    </button>
                 </div>
             </section>
 
             <section class="code-section">
-                <h2 class="code-title">2. Evidencia de codigo ejecutandose en Python</h2>
+                <h2 class="code-title">2. Evidencia de código ejecutándose en Python</h2>
                 <div class="image-wrapper">
                     <img src="images/nyc_lambda/EvidenciaCodigoLambda.png" alt="Código de new_data.py" loading="lazy">
                 </div>
             </section>
 
             <section class="code-section">
-                <h2 class="code-title">3. Se crea una carpeta raw en s3</h2>
+                <h2 class="code-title">3. Se crea una carpeta raw en S3</h2>
                 <div class="image-wrapper">
                     <img src="images/nyc_lambda/EvidenciaSalidaS3.png" alt="Código de lambda_function.py" loading="lazy">
                 </div>
             </section>
 
             <section class="code-section">
-                <h2 class="code-title">4. Se generan los archivos de nyc dentro de la carpeta raw</h2>
+                <h2 class="code-title">4. Se generan los archivos de NYC dentro de la carpeta raw</h2>
                 <div class="image-wrapper">
                     <img src="images/nyc_lambda/EvidenciaArchivosS3.png" alt="Resultado de Salida de la Función Lambda" loading="lazy">
                 </div>
             </section>
         </main>
 
+        <div id="viewer-container" class="hidden opacity-0 translate-y-4 transition-all-custom duration-300 bg-shadow var(--card-bg) border border-zinc-800 p-6 rounded-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="active-task-title" class="text-xl font-bold text-white"></h3>
+                <a id="active-task-link" href="#" target="_blank" class="text-xs text-indigo-400 hover:underline">Abrir en pestaña nueva</a>
+            </div>
+            <iframe id="task-iframe" src="" class="w-full h-[500px] bg-white rounded-lg border-0"></iframe>
+            
+            <button onclick="closeViewer()" class="mt-4 px-4 py-2 bg-zinc-800 text-sm text-zinc-300 rounded-lg hover:bg-zinc-700 transition">Volver al Dashboard</button>
+        </div>
+
         <footer>
             <p>&copy; 2026 - Dashboard de Procesamiento de Datos</p>
         </footer>
     </div>
-    <script>
-        function openTask(rutaArchivo, tituloTarea) {
-    console.log("Cargando tarea:", tituloTarea);
 
-    // Hacemos una petición para leer el archivo de texto
-    fetch(rutaArchivo)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo abrir el archivo TXT");
-            }
-            return response.text(); // Convertimos la respuesta a texto plano
-        })
-        .then(texto => {
-            // Aquí pones la lógica para mostrar el texto en tu página web
-            // Ejemplo: meterlo dentro de un div con id "visor-texto"
-            document.getElementById("visor-texto").innerText = texto;
-        })
-        .catch(error => {
-            console.error("Hubo un problema:", error);
-            alert("No se pudo cargar el archivo de texto.");
-        });
-}
-        /*
+    <script>
         const dashboard = document.getElementById("main-dashboard");
         const viewerContainer = document.getElementById("viewer-container");
         const taskIframe = document.getElementById("task-iframe");
@@ -191,25 +188,35 @@
         const activeTaskLink = document.getElementById("active-task-link");
     
         function openTask(path, title) {
-            // Asignar parámetros del visualizador
             activeTaskTitle.textContent = title;
             activeTaskLink.href = path;
             taskIframe.src = path;
 
-            // Transición limpia de desvanecimiento
             dashboard.classList.add("opacity-0", "translate-y-2");
             setTimeout(() => {
                 dashboard.classList.add("hidden");
                 viewerContainer.classList.remove("hidden");
                 
-                // Forzar reflujo de pantalla para animaciones
-                viewerContainer.offsetHeight; 
+                viewerContainer.offsetHeight; // Truco de reflujo
                 
                 viewerContainer.classList.remove("opacity-0", "translate-y-4");
                 viewerContainer.classList.add("opacity-100", "translate-y-0");
             }, 300);
         }
-        */
+
+        // Función extra por comodidad para poder regresar a la vista anterior
+        function closeViewer() {
+            viewerContainer.classList.add("opacity-0", "translate-y-4");
+            setTimeout(() => {
+                viewerContainer.classList.add("hidden");
+                dashboard.classList.remove("hidden");
+                
+                dashboard.offsetHeight;
+                
+                dashboard.classList.remove("opacity-0", "translate-y-2");
+                dashboard.classList.add("opacity-100", "translate-y-0");
+            }, 300);
+        }
     </script>
 </body>
 </html>
