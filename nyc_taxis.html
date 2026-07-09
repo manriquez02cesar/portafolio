@@ -111,7 +111,7 @@
 
     <div class="container">
         <header>
-            <h1>Visualizador de <span>Código Lambda para carga de datos s3 a travez de una fuente de datos Dataset</span></h1>
+            <h1>Visualizador de <span>Código Lambda para carga de datos s3 para NYC Taxis</span></h1>
             <p>Estructura y flujo de trabajo del proyecto</p>
         </header>
 
@@ -162,6 +162,28 @@
         </footer>
     </div>
     <script>
+        function openTask(rutaArchivo, tituloTarea) {
+    console.log("Cargando tarea:", tituloTarea);
+
+    // Hacemos una petición para leer el archivo de texto
+    fetch(rutaArchivo)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("No se pudo abrir el archivo TXT");
+            }
+            return response.text(); // Convertimos la respuesta a texto plano
+        })
+        .then(texto => {
+            // Aquí pones la lógica para mostrar el texto en tu página web
+            // Ejemplo: meterlo dentro de un div con id "visor-texto"
+            document.getElementById("visor-texto").innerText = texto;
+        })
+        .catch(error => {
+            console.error("Hubo un problema:", error);
+            alert("No se pudo cargar el archivo de texto.");
+        });
+}
+        /*
         const dashboard = document.getElementById("main-dashboard");
         const viewerContainer = document.getElementById("viewer-container");
         const taskIframe = document.getElementById("task-iframe");
@@ -187,6 +209,7 @@
                 viewerContainer.classList.add("opacity-100", "translate-y-0");
             }, 300);
         }
+        */
     </script>
 </body>
 </html>
