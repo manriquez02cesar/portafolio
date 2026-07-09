@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Función Lambda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #141b2d;
+            --text-color: #e2e8f0;
+            --primary-blue: #00d2ff;
+            --accent-blue: #0066ff;
+            --border-color: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--primary-blue);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+
+        header p {
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .code-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .code-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .code-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-wrapper {
+            background-color: #070a12;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Visualizador de <span>Código Lambda para carga de datos s3 a travez de una fuente de datos Dataset</span></h1>
+            <p>Estructura y flujo de trabajo del proyecto</p>
+        </header>
+
+        <main>
+            <section class="code-section">
+                <h2 class="code-title">1. Codigo lambda_function.py</h2>
+                <div class="image-wrapper">
+                    <button onclick="openTask('./components/Codigo_NYC_Taxis_Ultimos3.txt', 'Getting into the Serverless')" class="group text-left p-5 w-full bg-zinc-900/40 border border-zinc-800/80 rounded-xl flex items-center justify-between gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-zinc-900/80 hover:border-indigo-500/80 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] focus:outline-none focus:ring-2 focus:ring-indigo-500/50">
+                <div class="flex items-center gap-4 truncate">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-indigo-400 group-hover:bg-indigo-950/40 group-hover:border-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-chart-line text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="block text-sm font-bold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-300">Codigo NYC Taxis ultimos 3 años</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1.5 transition-all duration-300">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </div>
+            </button>
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">2. Evidencia de codigo ejecutandose en Python</h2>
+                <div class="image-wrapper">
+                    <img src="images/nyc_lambda/EvidenciaCodigoLambda.png" alt="Código de new_data.py" loading="lazy">
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">3. Se crea una carpeta raw en s3</h2>
+                <div class="image-wrapper">
+                    <img src="images/nyc_lambda/EvidenciaSalidaS3.png" alt="Código de lambda_function.py" loading="lazy">
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2 class="code-title">4. Se generan los archivos de nyc dentro de la carpeta raw</h2>
+                <div class="image-wrapper">
+                    <img src="images/nyc_lambda/EvidenciaArchivosS3.png" alt="Resultado de Salida de la Función Lambda" loading="lazy">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Dashboard de Procesamiento de Datos</p>
+        </footer>
+    </div>
+    <script>
+        const dashboard = document.getElementById("main-dashboard");
+        const viewerContainer = document.getElementById("viewer-container");
+        const taskIframe = document.getElementById("task-iframe");
+        const activeTaskTitle = document.getElementById("active-task-title");
+        const activeTaskLink = document.getElementById("active-task-link");
+    
+        function openTask(path, title) {
+            // Asignar parámetros del visualizador
+            activeTaskTitle.textContent = title;
+            activeTaskLink.href = path;
+            taskIframe.src = path;
+
+            // Transición limpia de desvanecimiento
+            dashboard.classList.add("opacity-0", "translate-y-2");
+            setTimeout(() => {
+                dashboard.classList.add("hidden");
+                viewerContainer.classList.remove("hidden");
+                
+                // Forzar reflujo de pantalla para animaciones
+                viewerContainer.offsetHeight; 
+                
+                viewerContainer.classList.remove("opacity-0", "translate-y-4");
+                viewerContainer.classList.add("opacity-100", "translate-y-0");
+            }, 300);
+        }
+    </script>
+</body>
+</html>
