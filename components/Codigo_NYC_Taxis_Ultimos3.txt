@@ -1,0 +1,46 @@
+import boto3
+import urllib.request
+import os
+# Inicializamos a s3
+s3_client = boto3.client('s3')
+
+def lambda_handler(event, context):
+    # Nombre de mi bunker
+    NOMBRE_BUCKET = "xideralaws-curso-cesarman" 
+    
+    # Se definen los ultimos 3 años
+    anios = [2023, 2024, 2025]
+    # Se definen los meses
+    meses = [f"{i:02d}" for i in range(1, 13)] # Genera ['01', '02', ..., '12']
+    
+    print("Iniciando la extracción de datos de NYC Taxi...")
+
+    for anio in anios:
+        for mes in meses:
+            # URL del dataset : Es la fuente de los datos
+            url_fuente = f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{anio}-{mes}.parquet"
+            # Directorio de donde sera guardado los datos (dentro de RAW)
+            nyc_taxis_original = f"raw/yellow_tripdata_{anio}-{mes}.parquet"
+            
+            try:
+                print(f"Conectando para descargar: Año {anio} - Mes {mes}...")
+                
+                with urllib.request.urlopen(url_fuente) as response:
+                    # Transmitimos el flujo de datos directamente hacia el bucket s3
+                    s3_client.upload_fileobj(
+                        Fileobj=response,
+                        Bucket=NOMBRE_BUCKET,
+                        Key=nyc_taxis_original
+                    )
+                print(f"Éxito: Guardado en S3 como {nyc_taxis_original}")
+                
+            except urllib.error.HTTPError as e:
+                # Por si algún mes muy reciente o viejo no existe en el servidor de NYC
+                print(f"Aviso: No se encontró el archivo para {anio}-{mes} (HTTP {e.code}). Saltando...")
+            except Exception as e:
+                print(f"Error inesperado procesando {anio}-{mes}: {str(e)}")
+                
+    return {
+        'statusCode': 200,
+        'body': 'Proceso de extracción completado exitosamente en xideralaws-curso-cesarman.'
+    }
